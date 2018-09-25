@@ -5,6 +5,7 @@ var imgElement1 = document.getElementById('img1');
 var imgElement2 = document.getElementById('img2');
 var imgElement3 = document.getElementById('img3');
 
+
 var totalClicks = 0;
 
 // array to store images
@@ -62,51 +63,49 @@ function randomImg(){
     
     imgElement1.src = Img.allProducts[randomNum1].filepath;
     imgElement1.alt = Img.allProducts[randomNum1].imgName;
+    imgElement1.index = randomNum1;
     Img.allProducts[randomNum1].views += 1;
-    var pic1 = imgElement1;
     
 
 
     imgElement2.src = Img.allProducts[randomNum2].filepath;
     imgElement2.alt = Img.allProducts[randomNum2].imgName;
+    imgElement2.index = randomNum2;
     Img.allProducts[randomNum2].views += 1;
-    var pic2 = imgElement2;
-
 
     imgElement3.src = Img.allProducts[randomNum3].filepath;
     imgElement3.alt = Img.allProducts[randomNum3].imgName;
+    imgElement3.index = randomNum3;
     Img.allProducts[randomNum3].views += 1;  
-    var pic3 = imgElement3;
- 
-
 }
 
-console.log(element1);
-
-
-function getScore(){
-    console.log("getting here");
-    console.log(event);
-
-    console.log('now here');
-    console.log(pic3);
-
-
-    
+function getResults(){
+    for(var i = 0; i <= Img.allProducts.length-1; i++){
+        var results = document.getElementById('results');
+        var newText = document.createElement('p');
+        newText.textContent = Img.allProducts[i].imgName + " was clicked " + Img.allProducts[i].score + " times, on " + Img.allProducts[i].views + " views.";
+        console.log(newText);
+        results.appendChild(newText);
+    }
 }
 
 function nextSet(){
-    getScore()
+    Img.allProducts[event.target.index].score +=1;
+    console.log('socre is');
+    console.log(Img.allProducts[event.target.index].score)
+    console.log("clicks");
+    totalClicks +=1;
+    console.log(totalClicks);
+    if(totalClicks < 26){
     randomImg();
+    }else{
+        getResults();
+    }
 }
 
-
 // event listener
-imgElement1.addEventListener('click', nextSet);
-imgElement2.addEventListener('click', nextSet);
-imgElement3.addEventListener('click', nextSet);
-
-console.log('now here');
-console.log(imgElement1.Img);
+    imgElement1.addEventListener('click', nextSet);
+    imgElement2.addEventListener('click', nextSet);
+    imgElement3.addEventListener('click', nextSet);
 
 randomImg();
