@@ -5,14 +5,11 @@ var imgElement1 = document.getElementById('img1');
 var imgElement2 = document.getElementById('img2');
 var imgElement3 = document.getElementById('img3');
 
-
 var totalClicks = 0;
 
 // array to store images
 Img.allProducts = [];
 // ProductID = []
-
-
 
 // cunstucter object to create images
 function Img(filepath, imgName){
@@ -20,9 +17,7 @@ function Img(filepath, imgName){
     this.imgName = imgName;
     this.score = 0;
     this.views = 0; 
-
     Img.allProducts.push(this);
-
 }
 
 // adding all images
@@ -49,7 +44,7 @@ new Img ('img/wine-glass.jpg', 'Wine-glass');
 
 
 
-
+// function that makes random different images
 function randomImg(){
     var randomNum1 = Math.floor(Math.random() * Img.allProducts.length);
     var randomNum2 = Math.floor(Math.random() * Img.allProducts.length);
@@ -96,7 +91,7 @@ function nextSet(){
     console.log("clicks");
     totalClicks +=1;
     console.log(totalClicks);
-    if(totalClicks < 26){
+    if(totalClicks <= 25){
         imgElement1.classList.add('opacity')
         imgElement2.classList.add('opacity')
         imgElement3.classList.add('opacity')
@@ -106,11 +101,12 @@ function nextSet(){
         imgElement2.classList.remove('opacity')
         imgElement3.classList.remove('opacity')
         }, 300);
-    }else{
+    }else if(totalClicks < 27){
         getResults();
+    }else{
+        console.log('done');
     }
 }
-
 // event listener
     imgElement1.addEventListener('click', nextSet);
     imgElement2.addEventListener('click', nextSet);
