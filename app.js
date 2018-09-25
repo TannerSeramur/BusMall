@@ -26,26 +26,26 @@ function Img(filepath, imgName){
 }
 
 // adding all images
-new Img ('img/bag.jpg', 'bag');
-new Img ('img/banana.jpg', 'banana');
-new Img ('img/bathroom.jpg', 'bathroom');
-new Img ('img/boots.jpg', 'boots');
-new Img ('img/breakfast.jpg', 'breakfast');
-new Img ('img/bubblegum.jpg', 'bubblegum');
-new Img ('img/chair.jpg', 'chair');
-new Img ('img/cthulhu.jpg', 'cthulhu');
-new Img ('img/dog-duck.jpg', 'dog-duck');
-new Img ('img/dragon.jpg', 'dragon');
-new Img ('img/pen.jpg', 'pen');
-new Img ('img/pet-sweep.jpg', 'pet-sweep');
-new Img ('img/scissors.jpg', 'scissors');
-new Img ('img/shark.jpg', 'shark');
-new Img ('img/sweep.png', 'sweep');
-new Img ('img/tauntaun.jpg', 'tauntaun');
-new Img ('img/unicorn.jpg', 'unicorn');
-new Img ('img/usb.gif', 'usb');
-new Img ('img/water-can.jpg', 'water-can');
-new Img ('img/wine-glass.jpg', 'wine-glass');
+new Img ('img/bag.jpg', 'Bag');
+new Img ('img/banana.jpg', 'Banana');
+new Img ('img/bathroom.jpg', 'Bathroom');
+new Img ('img/boots.jpg', 'Boots');
+new Img ('img/breakfast.jpg', 'Breakfast');
+new Img ('img/bubblegum.jpg', 'Bubblegum');
+new Img ('img/chair.jpg', 'Chair');
+new Img ('img/cthulhu.jpg', 'Cthulhu');
+new Img ('img/dog-duck.jpg', 'Dog-duck');
+new Img ('img/dragon.jpg', 'Dragon');
+new Img ('img/pen.jpg', 'Pen');
+new Img ('img/pet-sweep.jpg', 'Pet-sweep');
+new Img ('img/scissors.jpg', 'Scissors');
+new Img ('img/shark.jpg', 'Shark');
+new Img ('img/sweep.png', 'Sweep');
+new Img ('img/tauntaun.jpg', 'Tauntaun');
+new Img ('img/unicorn.jpg', 'Unicorn');
+new Img ('img/usb.gif', 'Usb');
+new Img ('img/water-can.jpg', 'Water-can');
+new Img ('img/wine-glass.jpg', 'Wine-glass');
 
 
 
@@ -82,8 +82,8 @@ function randomImg(){
 function getResults(){
     for(var i = 0; i <= Img.allProducts.length-1; i++){
         var results = document.getElementById('results');
-        var newText = document.createElement('p');
-        newText.textContent = Img.allProducts[i].imgName + " was clicked " + Img.allProducts[i].score + " times, on " + Img.allProducts[i].views + " views.";
+        var newText = document.createElement('li');
+        newText.textContent = Img.allProducts[i].imgName + ": " + Img.allProducts[i].score + " Votes, " + Img.allProducts[i].views + " views.";
         console.log(newText);
         results.appendChild(newText);
     }
@@ -96,7 +96,7 @@ function nextSet(){
     console.log("clicks");
     totalClicks +=1;
     console.log(totalClicks);
-    if(totalClicks < 26){
+    if(totalClicks < 5){
     randomImg();
     }else{
         getResults();
