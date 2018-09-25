@@ -61,15 +61,19 @@ ul#tabnav a:hover {
 
 /* images */
 .img-container img{
-    width: 250px;
-    height: 250px;
+    width: 200px;
+    height: 200px;
     margin:10px;
+    display: inline-block;
 }
 .img-container{
-   margin: 40px;
+   margin: 10px;
+   width: 100%;
+
+
 }
 #results p{
-    background-color:red;
+    /* background-color:red; */
 }
 h1{
     color: #f1f1f1;
@@ -80,5 +84,18 @@ h2{
     text-align: center;
 }
 .results{
-    padding: 40px;
+    padding: 20px;
+    width: 20%;
+    float: left;
+    /* background-color: #654850; */
+
+}
+.content-container{
+    display: flex;
+    align-content: center;
+    justify-content: space-between;
+
+}
+.results li{
+    /* color: #f1f1f1; */
 }
