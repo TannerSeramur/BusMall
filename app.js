@@ -96,7 +96,7 @@ function nextSet(){
     console.log("clicks");
     totalClicks +=1;
     console.log(totalClicks);
-    if(totalClicks < 5){
+    if(totalClicks < 26){
     randomImg();
     }else{
         getResults();
