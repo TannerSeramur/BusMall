@@ -97,7 +97,15 @@ function nextSet(){
     totalClicks +=1;
     console.log(totalClicks);
     if(totalClicks < 26){
-    randomImg();
+        imgElement1.classList.add('opacity')
+        imgElement2.classList.add('opacity')
+        imgElement3.classList.add('opacity')
+        randomImg();
+        setTimeout(function(){
+        imgElement1.classList.remove('opacity')
+        imgElement2.classList.remove('opacity')
+        imgElement3.classList.remove('opacity')
+        }, 300);
     }else{
         getResults();
     }
