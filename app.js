@@ -4,6 +4,8 @@
 var imgElement1 = document.getElementById('img1');
 var imgElement2 = document.getElementById('img2');
 var imgElement3 = document.getElementById('img3');
+// dom of chart
+var ctx = document.getElementById("myChart");
 
 var totalClicks = 0;
 
@@ -103,10 +105,93 @@ function nextSet(){
         }, 300);
     }else if(totalClicks < 27){
         getResults();
+
+        // ChartJS starts here
+var myChart = new Chart(ctx, {
+    type: 'bar',
+    data: {
+        labels: ["Bag", "Banana", "Bathroom", "Boots", "Breakfast", "Bubblegum", "Chair", "Cthulhu", "Dog-Duck", "Dragon", "Pen", "Pet Sweep", "Scissors", "Shark", "Sweep", "Tauntaun", "Unicorn", "Usb", "Water Can", "Wine Glass"],
+        datasets: [{
+            label: '# of Votes',
+            data: [Img.allProducts[0].score, Img.allProducts[1].score, Img.allProducts[2].score, Img.allProducts[3].score, Img.allProducts[4].score, Img.allProducts[5].score, Img.allProducts[6].score, Img.allProducts[7].score, Img.allProducts[8].score, Img.allProducts[9].score, Img.allProducts[10].score, Img.allProducts[11].score, Img.allProducts[12].score, Img.allProducts[13].score, Img.allProducts[14].score, Img.allProducts[15].score, Img.allProducts[16].score, Img.allProducts[17].score, Img.allProducts[18].score, Img.allProducts[19].score],
+            backgroundColor: [
+                'rgba(255, 99, 132, 0.2)',
+                'rgba(54, 162, 235, 0.2)',
+                'rgba(255, 206, 86, 0.2)',
+                'rgba(75, 192, 192, 0.2)',
+                'rgba(153, 102, 255, 0.2)',
+                'rgba(255, 159, 64, 0.2)',
+                'rgba(255, 99, 132, 0.2)',
+                'rgba(54, 162, 235, 0.2)',
+                'rgba(255, 206, 86, 0.2)',
+                'rgba(75, 192, 192, 0.2)',
+                'rgba(153, 102, 255, 0.2)',
+                'rgba(255, 159, 64, 0.2)' ,
+                'rgba(255, 99, 132, 0.2)',
+                'rgba(54, 162, 235, 0.2)',
+                'rgba(255, 206, 86, 0.2)',
+                'rgba(75, 192, 192, 0.2)',
+                'rgba(153, 102, 255, 0.2)',
+                'rgba(255, 159, 64, 0.2)',
+                'rgba(255, 99, 132, 0.2)',
+                'rgba(54, 162, 235, 0.2)'
+                
+            ],
+            borderColor: [
+                'rgba(255,99,132,1)',
+                'rgba(54, 162, 235, 1)',
+                'rgba(255, 206, 86, 1)',
+                'rgba(75, 192, 192, 1)',
+                'rgba(153, 102, 255, 1)',
+                'rgba(255, 159, 64, 1)',
+                'rgba(255,99,132,1)',
+                'rgba(54, 162, 235, 1)',
+                'rgba(255, 206, 86, 1)',
+                'rgba(75, 192, 192, 1)',
+                'rgba(153, 102, 255, 1)',
+                'rgba(255, 159, 64, 1)',
+                'rgba(255,99,132,1)',
+                'rgba(54, 162, 235, 1)',
+                'rgba(255, 206, 86, 1)',
+                'rgba(75, 192, 192, 1)',
+                'rgba(153, 102, 255, 1)',
+                'rgba(255, 159, 64, 1)',
+                'rgba(255,99,132,1)',
+                'rgba(54, 162, 235, 1)',
+            ],
+            borderWidth: 1
+        }]
+    },
+    options: {
+        responsive: true,
+        title:{
+            display: true,
+            text: 'Results of Survey'
+        },
+        scales: {
+            gridLines:[{
+                tickMarkLength: 1
+            }],
+            yAxes: [{
+                ticks: {
+                    min: 0,
+                    stepSize: 1,
+                    
+                }
+            }]
+        }
+    
+    }
+});
+// Chart ends here
+
     }else{
         console.log('done');
     }
 }
+
+
+
 // event listener
     imgElement1.addEventListener('click', nextSet);
     imgElement2.addEventListener('click', nextSet);

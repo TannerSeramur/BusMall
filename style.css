@@ -103,3 +103,17 @@ h2{
 .opacity{
     opacity: .0;
 }
+
+.chart-container{
+    width: 80vw;
+    /* height: 300px; */
+}
+/* canvas{
+
+    width:80vw !important;
+    height:400px !important;
+  
+  } */
+
+
+
