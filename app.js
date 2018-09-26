@@ -170,14 +170,14 @@ var myChart = new Chart(ctx, {
         },
         scales: {
             gridLines:[{
-                tickMarkLength: 1
+                tickMarkLength: 50
             }],
             yAxes: [{
                 ticks: {
                     min: 0,
-                    stepSize: 1,
-                    
-                }
+                    stepSize: 1, 
+                },
+                weight: -20
             }]
         }
     
