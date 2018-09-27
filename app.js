@@ -18,36 +18,50 @@ function Img(filepath, imgName){
     this.filepath = filepath;
     this.imgName = imgName;
     this.score = 0;
-    this.views = 0; 
+    this.views = 0;
+    // this.precent = 0; 
     Img.allProducts.push(this);
 }
 
+var localStorageData = localStorage.getItem("item");
+
 // adding all images
-new Img ('img/bag.jpg', 'Bag');
-new Img ('img/banana.jpg', 'Banana');
-new Img ('img/bathroom.jpg', 'Bathroom');
-new Img ('img/boots.jpg', 'Boots');
-new Img ('img/breakfast.jpg', 'Breakfast');
-new Img ('img/bubblegum.jpg', 'Bubblegum');
-new Img ('img/chair.jpg', 'Chair');
-new Img ('img/cthulhu.jpg', 'Cthulhu');
-new Img ('img/dog-duck.jpg', 'Dog-duck');
-new Img ('img/dragon.jpg', 'Dragon');
-new Img ('img/pen.jpg', 'Pen');
-new Img ('img/pet-sweep.jpg', 'Pet-sweep');
-new Img ('img/scissors.jpg', 'Scissors');
-new Img ('img/shark.jpg', 'Shark');
-new Img ('img/sweep.png', 'Sweep');
-new Img ('img/tauntaun.jpg', 'Tauntaun');
-new Img ('img/unicorn.jpg', 'Unicorn');
-new Img ('img/usb.gif', 'Usb');
-new Img ('img/water-can.jpg', 'Water-can');
-new Img ('img/wine-glass.jpg', 'Wine-glass');
+if(!localStorageData){
+    new Img ('img/bag.jpg', 'Bag');
+    new Img ('img/banana.jpg', 'Banana');
+    new Img ('img/bathroom.jpg', 'Bathroom');
+    new Img ('img/boots.jpg', 'Boots');
+    new Img ('img/breakfast.jpg', 'Breakfast');
+    new Img ('img/bubblegum.jpg', 'Bubblegum');
+    new Img ('img/chair.jpg', 'Chair');
+    new Img ('img/cthulhu.jpg', 'Cthulhu');
+    new Img ('img/dog-duck.jpg', 'Dog-duck');
+    new Img ('img/dragon.jpg', 'Dragon');
+    new Img ('img/pen.jpg', 'Pen');
+    new Img ('img/pet-sweep.jpg', 'Pet-sweep');
+    new Img ('img/scissors.jpg', 'Scissors');
+    new Img ('img/shark.jpg', 'Shark');
+    new Img ('img/sweep.png', 'Sweep');
+    new Img ('img/tauntaun.jpg', 'Tauntaun');
+    new Img ('img/unicorn.jpg', 'Unicorn');
+    new Img ('img/usb.gif', 'Usb');
+    new Img ('img/water-can.jpg', 'Water-can');
+    new Img ('img/wine-glass.jpg', 'Wine-glass');
+
+    localStorage.setItem("item", JSON.stringify(Img.allProducts));
+}else{
+    Img.allProducts = JSON.parse(localStorageData);
+}
 
 
+
+
+// var localStorageData = localStorage.getItem("item");
 
 // function that makes random different images
 function randomImg(){
+    
+
     var randomNum1 = Math.floor(Math.random() * Img.allProducts.length);
     var randomNum2 = Math.floor(Math.random() * Img.allProducts.length);
     var randomNum3 = Math.floor(Math.random() * Img.allProducts.length);
@@ -63,8 +77,6 @@ function randomImg(){
     imgElement1.index = randomNum1;
     Img.allProducts[randomNum1].views += 1;
     
-
-
     imgElement2.src = Img.allProducts[randomNum2].filepath;
     imgElement2.alt = Img.allProducts[randomNum2].imgName;
     imgElement2.index = randomNum2;
@@ -74,6 +86,13 @@ function randomImg(){
     imgElement3.alt = Img.allProducts[randomNum3].imgName;
     imgElement3.index = randomNum3;
     Img.allProducts[randomNum3].views += 1;  
+
+    // local storage for views
+    var updateViewsLocalStorage = JSON.parse(localStorage.getItem("item"));
+    console.log(updateViewsLocalStorage);
+    // localStorage.removeItem("item");
+    localStorage.setItem("item", JSON.stringify(Img.allProducts));
+    console.log(updateViewsLocalStorage);
 }
 
 function getResults(){
@@ -85,6 +104,12 @@ function getResults(){
         results.appendChild(newText);
     }
 }
+// function getPercent(){
+//     for(var i = 0; i < Img.allProducts.length; i++ ){
+//         var precents = Img.allProducts[i].score / Img.allProducts[i].views;
+//         Img.allProducts[i].precent.push(precents);
+//     }
+// }
 
 function nextSet(){
     Img.allProducts[event.target.index].score +=1;
@@ -93,6 +118,7 @@ function nextSet(){
     console.log("clicks");
     totalClicks +=1;
     console.log(totalClicks);
+    
     if(totalClicks <= 25){
         imgElement1.classList.add('opacity')
         imgElement2.classList.add('opacity')
