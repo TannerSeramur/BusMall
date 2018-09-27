@@ -140,10 +140,19 @@ h2{
     display:flex;
     align-items: center;
     align-content: center;
-    margin-left: 20px;
+    margin-left: 40px;
+    margin-top: 20px;
 }
 img{
     background-color: #eae2cf;
     padding: 5px;
     border-left: 10px solid #588b71;
+}
+#results li{
+    background-color: rgb(234,226,207, .5);
+
+}
+/* h3{ */
+    background-color: rgb(234,226,207, .5);
+    padding: 10px;
 }
