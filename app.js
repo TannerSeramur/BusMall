@@ -89,13 +89,16 @@ function randomImg(){
 
     // local storage for views
     var updateViewsLocalStorage = JSON.parse(localStorage.getItem("item"));
-    console.log(updateViewsLocalStorage);
-    // localStorage.removeItem("item");
+    // console.log(updateViewsLocalStorage);;
     localStorage.setItem("item", JSON.stringify(Img.allProducts));
-    console.log(updateViewsLocalStorage);
+    // console.log(updateViewsLocalStorage);
 }
 
 function getResults(){
+    var title = document.getElementById('title');
+    var newTitle = document.createElement('h3');
+    newTitle.textContent = "Results:";
+    title.appendChild(newTitle);
     for(var i = 0; i <= Img.allProducts.length-1; i++){
         var results = document.getElementById('results');
         var newText = document.createElement('li');
@@ -131,6 +134,7 @@ function nextSet(){
         }, 300);
     }else if(totalClicks < 27){
         getResults();
+        // console.log('done')
 
         // ChartJS starts here
 var myChart = new Chart(ctx, {
@@ -201,7 +205,8 @@ var myChart = new Chart(ctx, {
             yAxes: [{
                 ticks: {
                     min: 0,
-                    stepSize: 1, 
+                    stepSize: 1,
+                    display: false 
                 },
                 weight: -20
             }]
@@ -222,5 +227,6 @@ var myChart = new Chart(ctx, {
     imgElement1.addEventListener('click', nextSet);
     imgElement2.addEventListener('click', nextSet);
     imgElement3.addEventListener('click', nextSet);
+
 
 randomImg();
