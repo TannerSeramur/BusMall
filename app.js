@@ -228,4 +228,5 @@ var myChart = new Chart(ctx, {
     imgElement2.addEventListener('click', nextSet);
     imgElement3.addEventListener('click', nextSet);
 
+
 randomImg();
